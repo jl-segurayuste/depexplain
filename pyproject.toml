@@ -1,0 +1,24 @@
+[project]
+name = "envdoctor"
+version = "0.1.0"
+description = "Traduce ImportError/ModuleNotFoundError a un diagnóstico claro: qué tienes instalado, qué pide el proyecto, y el comando exacto para arreglarlo."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.6", "packaging>=23.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.6"]
+
+[project.scripts]
+envdoctor = "envdoctor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["envdoctor*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
