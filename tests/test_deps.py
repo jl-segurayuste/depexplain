@@ -1,6 +1,6 @@
 from conftest import write
 
-from envdoctor.deps import declared_dependencies, parse_pyproject_toml, parse_requirements_txt
+from depexplain.deps import declared_dependencies, parse_pyproject_toml, parse_requirements_txt
 
 
 def test_parse_requirements_txt_basico(project):

@@ -1,4 +1,4 @@
-from envdoctor.environment import installed_version, module_to_package
+from depexplain.environment import installed_version, module_to_package
 
 
 def test_module_to_package_mapeo_conocido():

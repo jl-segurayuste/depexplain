@@ -8,8 +8,8 @@ from packaging.utils import canonicalize_name
 from packaging.version import InvalidVersion, Version
 from pydantic import BaseModel
 
-from envdoctor.deps import declared_dependencies
-from envdoctor.environment import installed_version
+from depexplain.deps import declared_dependencies
+from depexplain.environment import installed_version
 
 Status = Literal["ok", "missing", "version_mismatch"]
 
@@ -82,7 +82,7 @@ def diagnose_project_by_import_name(
 ) -> Diagnosis | None:
     """Busca en las dependencias declaradas la que probablemente corresponde
     a `module_name` (normalizando nombre de import vs. nombre de paquete),
-    para el flujo `envdoctor explain`. Aquí sí se incluyen los extras por
+    para el flujo `depexplain explain`. Aquí sí se incluyen los extras por
     defecto: si el error ya ocurrió, lo relevante es si el paquete que lo
     causó está declarado en algún sitio, sea obligatorio u opcional.
     """
@@ -90,7 +90,7 @@ def diagnose_project_by_import_name(
     if not declared:
         return None
 
-    from envdoctor.environment import module_to_package
+    from depexplain.environment import module_to_package
 
     candidate = canonicalize_name(module_to_package(module_name))
     for pkg, spec in declared.items():

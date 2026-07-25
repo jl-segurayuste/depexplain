@@ -1,4 +1,4 @@
-# envdoctor
+# depexplain
 
 Traduce un `ImportError`/`ModuleNotFoundError` a un diagnóstico claro: qué
 tienes instalado, qué pide el proyecto, y el comando exacto para arreglarlo —
@@ -9,7 +9,7 @@ $ python3 app.py
 ...
 ImportError: cannot import name 'BaseSettings' from 'pydantic'
 
-$ echo "$ERROR" | envdoctor explain
+$ echo "$ERROR" | depexplain explain
 tienes 'pydantic' 2.13.4 instalado, pero el proyecto pide ==1.10.0.
 Fix: pip install "pydantic==1.10.0"
 ```
@@ -21,27 +21,27 @@ comunes y a la vez más tediosos de diagnosticar a mano: hay que mirar el
 traceback, adivinar qué paquete lo causó (no siempre coincide con el nombre
 del módulo — `yaml` es `pyyaml`, `cv2` es `opencv-python`...), comprobar qué
 versión tienes instalada, y qué versión pide realmente el proyecto.
-`envdoctor` hace esas tres comprobaciones por ti.
+`depexplain` hace esas tres comprobaciones por ti.
 
 ## Instalación
 
 Todavía no está en PyPI:
 
 ```bash
-pip install git+https://github.com/jl-segurayuste/envdoctor.git
+pip install git+https://github.com/jl-segurayuste/depexplain.git
 ```
 
 ## Uso
 
 ```bash
-envdoctor diagnose .                    # compara todo lo declarado vs. lo instalado
-envdoctor diagnose . --all              # incluye también lo que está OK
-envdoctor diagnose . --json
-envdoctor diagnose . --fail-on-problems # código de salida 1 si hay algo mal (para CI)
+depexplain diagnose .                    # compara todo lo declarado vs. lo instalado
+depexplain diagnose . --all              # incluye también lo que está OK
+depexplain diagnose . --json
+depexplain diagnose . --fail-on-problems # código de salida 1 si hay algo mal (para CI)
 
-envdoctor explain "ModuleNotFoundError: No module named 'yaml'"
-echo "$ERROR" | envdoctor explain       # o por stdin, pegando el traceback completo
-envdoctor explain --file traceback.txt
+depexplain explain "ModuleNotFoundError: No module named 'yaml'"
+echo "$ERROR" | depexplain explain       # o por stdin, pegando el traceback completo
+depexplain explain --file traceback.txt
 ```
 
 Lee `requirements.txt` y/o `pyproject.toml` (`[project.dependencies]` y

@@ -1,7 +1,7 @@
 from conftest import write
 
-import envdoctor.diagnose as diagnose_module
-from envdoctor.cli import main
+import depexplain.diagnose as diagnose_module
+from depexplain.cli import main
 
 
 def test_diagnose_sin_ficheros_exit_0(project, capsys):

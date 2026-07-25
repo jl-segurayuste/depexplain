@@ -1,8 +1,8 @@
 from conftest import write
 from packaging.specifiers import SpecifierSet
 
-import envdoctor.diagnose as diagnose_module
-from envdoctor.diagnose import diagnose_package, diagnose_project, diagnose_project_by_import_name
+import depexplain.diagnose as diagnose_module
+from depexplain.diagnose import diagnose_package, diagnose_project, diagnose_project_by_import_name
 
 
 def test_diagnose_package_ok(monkeypatch):

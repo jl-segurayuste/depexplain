@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 
-from envdoctor.diagnose import Diagnosis
+from depexplain.diagnose import Diagnosis
 
 _LABELS = {"ok": "OK    ", "missing": "FALTA ", "version_mismatch": "VERSION"}
 

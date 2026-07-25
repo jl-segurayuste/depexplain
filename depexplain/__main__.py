@@ -1,6 +1,6 @@
 import sys
 
-from envdoctor.cli import main
+from depexplain.cli import main
 
 if __name__ == "__main__":
     sys.exit(main())

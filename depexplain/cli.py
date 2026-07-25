@@ -4,9 +4,9 @@ import argparse
 import sys
 from pathlib import Path
 
-from envdoctor.diagnose import diagnose_project, diagnose_project_by_import_name
-from envdoctor.explain import extract_module_name
-from envdoctor.report import to_console, to_json
+from depexplain.diagnose import diagnose_project, diagnose_project_by_import_name
+from depexplain.explain import extract_module_name
+from depexplain.report import to_console, to_json
 
 
 def _cmd_diagnose(args: argparse.Namespace) -> int:
@@ -53,7 +53,7 @@ def _cmd_explain(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="envdoctor")
+    parser = argparse.ArgumentParser(prog="depexplain")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_diagnose = sub.add_parser("diagnose", help="Compara lo instalado contra lo declarado")

@@ -1,4 +1,4 @@
-from envdoctor.explain import extract_module_name
+from depexplain.explain import extract_module_name
 
 
 def test_extrae_module_not_found_error():

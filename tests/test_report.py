@@ -1,5 +1,5 @@
-from envdoctor.diagnose import Diagnosis
-from envdoctor.report import to_console, to_json
+from depexplain.diagnose import Diagnosis
+from depexplain.report import to_console, to_json
 
 
 def test_to_console_todo_ok():

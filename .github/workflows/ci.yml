@@ -29,4 +29,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -e .
-      - run: envdoctor diagnose . --fail-on-problems
+      - run: depexplain diagnose . --fail-on-problems

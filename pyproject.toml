@@ -1,5 +1,5 @@
 [project]
-name = "envdoctor"
+name = "depexplain"
 version = "0.1.0"
 description = "Traduce ImportError/ModuleNotFoundError a un diagnóstico claro: qué tienes instalado, qué pide el proyecto, y el comando exacto para arreglarlo."
 readme = "README.md"
@@ -11,10 +11,10 @@ dependencies = ["pydantic>=2.6", "packaging>=23.0"]
 dev = ["pytest>=7.4", "ruff>=0.6"]
 
 [project.scripts]
-envdoctor = "envdoctor.cli:main"
+depexplain = "depexplain.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["envdoctor*"]
+include = ["depexplain*"]
 
 [tool.ruff]
 line-length = 100
