@@ -14,6 +14,12 @@ tienes 'pydantic' 2.13.4 instalado, pero el proyecto pide ==1.10.0.
 Fix: pip install "pydantic==1.10.0"
 ```
 
+## Así se ve
+
+![Salida de depexplain sobre un proyecto de ejemplo](docs/img/demo.svg)
+
+<sub>Ejecución real sobre un proyecto con una dependencia sin instalar y otra con versión incompatible (todos los datos son ficticios).</sub>
+
 ## Por qué existe
 
 "Tengo numpy 2 pero el proyecto necesita 1.26" es uno de los errores más
