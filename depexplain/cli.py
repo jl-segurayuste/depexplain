@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 from depexplain.diagnose import diagnose_project, diagnose_project_by_import_name
-from depexplain.explain import extract_module_name
+from depexplain.explain import explain_undeclared, extract_module_name
 from depexplain.report import to_console, to_json
 
 
@@ -42,8 +42,8 @@ def _cmd_explain(args: argparse.Namespace) -> int:
     repo_path = Path(args.path).resolve()
     diagnosis = diagnose_project_by_import_name(repo_path, module_name)
     if diagnosis is None:
-        print(f"'{module_name}' no está declarado como dependencia en este proyecto.")
-        print("¿Falta añadirlo a requirements.txt/pyproject.toml, o es un error de escritura?")
+        for line in explain_undeclared(module_name):
+            print(line)
         return 1
 
     print(diagnosis.explanation)
