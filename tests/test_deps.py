@@ -72,3 +72,19 @@ def test_declared_dependencies_vacio_pero_no_none_si_fichero_existe(project):
     write(project, "requirements.txt", "# nada declarado todavia\n")
     declared = declared_dependencies(project)
     assert declared == {}
+
+
+def test_marcadores_que_no_aplican_se_ignoran(project):
+    write(project, "requirements.txt",
+          'pywin32>=300; sys_platform == "nonexistent-os"\n'
+          'tomli>=2; python_version < "3.0"\n'
+          'click>=8; python_version >= "3.0"\n')
+    assert set(parse_requirements_txt(project / "requirements.txt")) == {"click"}
+
+
+def test_mismo_paquete_en_dos_sitios_se_une(project):
+    write(project, "requirements.txt", "Django>=4\n")
+    write(project, "pyproject.toml", '[project]\nname = "x"\ndependencies = ["django<6"]\n')
+    declared = declared_dependencies(project)
+    assert list(declared) == ["Django"]
+    assert str(declared["Django"]) == "<6,>=4"

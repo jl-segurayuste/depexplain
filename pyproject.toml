@@ -1,6 +1,6 @@
 [project]
 name = "depexplain"
-version = "0.1.1"
+version = "0.1.2"
 description = "Traduce ImportError/ModuleNotFoundError a un diagnóstico claro: qué tienes instalado, qué pide el proyecto, y el comando exacto para arreglarlo."
 readme = "README.md"
 license = { text = "MIT" }
